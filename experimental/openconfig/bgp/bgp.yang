@@ -618,7 +618,7 @@ module bgp {
       uses bgp-common-configuration;
       uses bgp-mp:global-address-family-configuration;
       uses bgp-group-neighbor-common-configuration;
-      uses bgp-group-common-configuration;
+      //uses bgp-group-common-configuration;
 
       // list of configurations for neighbors in this peer group
       uses bgp-neighbor-configuration;
