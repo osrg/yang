@@ -466,6 +466,26 @@ module routing-policy {
           "explicitly set a default policy if no policy definition
           in the export policy chain is satisfied.";
       }
+
+      leaf-list distribute-policies {
+        type leafref {
+          path "/rpol:routing-policy/rpol:policy-definition" +
+              "/rpol:name";
+          require-instance true;
+        }
+        description
+          "list of policy names in sequence to be applied on
+          sending a routing update in the current context, e.g.,
+          for the current other route server clients.";
+      }
+
+      leaf default-distribute-policy {
+        type default-policy-type;
+        default REJECT-ROUTE;
+        description
+          "explicitly set a default policy if no policy definition
+          in the distribute policy chain is satisfied.";
+      }
     }
   }
 }
