@@ -416,9 +416,21 @@ module bgp-policy {
             "action to prepend local AS number to the AS-path a
         specified number of times";
 
+        leaf as {
+          type union {
+            type inet:as-number;
+            type string {
+              pattern "last-as";
+            }
+          }
+          description
+            "autonomous system number or 'last-as' which means
+            the leftmost as number in the AS-path to be prepended";
+        }
+
         leaf repeat-n {
           type uint8;
-          description "number of times to prepend the local AS
+          description "number of times to prepend the specific AS
           number";
         }
       }
